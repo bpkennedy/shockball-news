@@ -1,0 +1,28 @@
+@import "./_variables.scss";
+
+$typoOptions: display-4, display-3, display-2, display-1, headline, title, subtitle-1, subtitle-2, body-1, body-2, caption, overline;
+
+html {
+  overflow-y: auto!important;
+  font-size: 16px;
+
+  body #app {
+    font-family: $regular-font-family, sans-serif !important;
+    color: $global-font-color;
+    background-color: $background-color!important;
+
+    @each $typoOption in $typoOptions {
+      .#{$typoOption} {
+        font-family: $regular-font-family, sans-serif !important;
+      }
+    }
+
+    a {
+      color: $link-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,23 @@
+@import "./_vuetify_overrides.scss";
+
+.bold-font {
+  font-family: $bold-font-family, sans-serif;
+}
+
+.black-font {
+  font-family: $black-font-family, sans-serif;
+}
+
+.black-italic-font {
+  font-family: $black-italic-font-family, sans-serif;
+}
+
+.text-squeeze {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.main-content-width {
+  width: 77.5rem;
+  max-width: 77.5rem!important;
+}

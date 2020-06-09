@@ -1,4 +1,4 @@
-# sb-news
+# shockball-news
 
 ## Project setup
 ```

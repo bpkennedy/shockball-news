@@ -1,0 +1,22 @@
+@import "./_fonts.scss";
+
+// colors used by vuetify theme
+// also these colors are duplicated in the vuetify plugin file
+$primary: #002233;
+$secondary: #669900;
+$accent: #ffcc33;
+$error: #FF005E;
+$info: #0084FF;
+$success: #02D290;
+$warning: #371777;
+
+// app custom variables
+$background-color: #eeeeee;
+$global-font-color: #1d1e1f;
+$link-color: #06c;
+$main-content-width: 77.5rem;
+
+$regular-font-family: 'TTNorms-Regular';
+$bold-font-family: 'TTNorms-Bold';
+$black-font-family: 'TTNorms-Black';
+$black-italic-font-family: 'TTNorms-BlackItalic';
