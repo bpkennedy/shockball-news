@@ -41,6 +41,14 @@ export const getRecentArticles = async () => {
     return iterateSnapshotForItems(snapshot)
 }
 
+export const getAppConfig = async () => {
+    const config = await getOne({id: 'global', collection: 'config'})
+    if (config.last_server_update_date) {
+        config.last_server_update_date = config.last_server_update_date.toDate()
+    }
+    return config
+}
+
 export const getOneArticle = async (articleId: string) => {
     const articleMeta = queryBuilder({
         collection: 'article_meta',

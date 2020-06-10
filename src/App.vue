@@ -19,9 +19,6 @@ export default {
     TopBar,
     LeftDrawer,
   },
-  created() {
-    this.$store.dispatch(GET_ARTICLES_ACTION)
-  }
 }
 </script>
 
