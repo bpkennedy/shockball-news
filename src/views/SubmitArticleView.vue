@@ -3,14 +3,14 @@
         <v-row align="start" justify="center">
             <v-col cols="12">
                 <v-card>
-                    <v-list-item-title class="headline mb-1 px-4 pt-4">Submit News Article</v-list-item-title>
-                    <v-list-item-subtitle class="px-4">Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+                    <v-list-item-title class="headline mb-1 px-4 pt-4">New Article: Basic Info</v-list-item-title>
+                    <v-list-item-subtitle class="px-4">Set the name, author, and header image or video information</v-list-item-subtitle>
 
                     <v-form
                             ref="form"
                             v-model="valid"
                             :lazy-validation="lazy"
-                            class="pa-4"
+                            class="px-4 pb-4"
                     >
                         <v-text-field
                                 v-model="title"
@@ -45,6 +45,12 @@
                                 label="Article Image/Video subtitle"
                                 :messages="['Optional subtitle to be used with your header image/video']"
                         ></v-text-field>
+
+                        <v-list-item-title class="headline mb-1 mt-4 pr-4 pt-4">New Article: Draft Content</v-list-item-title>
+                        <v-list-item-subtitle class="pr-4 mb-4">Draft the content of your article and preview before submitting</v-list-item-subtitle>
+
+                        <content-editor />
+
                     </v-form>
                     <v-card-actions class="px-4 pb-4">
                         <v-btn @click="validate" :disabled="!valid" color="primary">Submit</v-btn>
@@ -56,13 +62,26 @@
 </template>
 
 <script>
+    import ContentEditor from '../components/ContentEditor.vue'
+
     export default {
         name: 'SubmitArticleView',
         components: {
+            ContentEditor,
         },
         data() {
             return {
                 valid: true,
+                title: '',
+                titleRules: [],
+                author: '',
+                authorRules: [],
+                authorRole: '',
+                authorRoleRules: [],
+                articleImageUrl: '',
+                articleImageUrlRules: [],
+                articleImageSubtitle: '',
+                articleImageSubtitleRules: [],
                 name: '',
                 nameRules: [
                     v => !!v || 'Name is required',
@@ -89,13 +108,11 @@
                 this.$refs.form.validate()
             },
         },
-        created() {
-        }
     }
 </script>
 
 <style lang="scss" scoped>
     .submit-article-view {
-        width: 40rem;
+        width: $main-content-width;
     }
 </style>
