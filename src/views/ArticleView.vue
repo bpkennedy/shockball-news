@@ -1,6 +1,6 @@
 <template>
     <v-container fluid class="article-view pa-0">
-        <v-row align="start" justify="center" :class="{'mobile-width ma-0': isTabletOrSmaller}">
+        <v-row align="start" justify="center" :class="{'full-width ma-0': isTabletOrSmaller}">
             <v-col v-if="!isTabletOrSmaller" cols="3" class="mr-0">
                 <v-row align-items="stretch">
                     <v-card tile class="mx-auto">
@@ -15,7 +15,7 @@
                 </v-row>
             </v-col>
             <v-col :cols="dynamicMainColumnSize" :class="{'pa-0': isTabletOrSmaller}">
-                <v-row :class="{'mobile-width ma-0': isTabletOrSmaller}">
+                <v-row :class="{'full-width ma-0': isTabletOrSmaller}">
                     <v-card flat tile height="100%" width="100%" class="mx-auto pt-6 pl-0 pr-0 pb-6">
                         <article-title/>
                         <article-header-image/>
@@ -64,9 +64,5 @@
 <style lang="scss" scoped>
     .article-view {
         width: 77.5rem;
-    }
-    .mobile-width {
-        width: 100%;
-        max-width: 100%;
     }
 </style>

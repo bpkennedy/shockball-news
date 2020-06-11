@@ -1,6 +1,6 @@
 <template>
-    <v-container fluid class="main-content-width pa-0" :class="{'mobile-width': isTabletOrSmaller}">
-        <v-row align="baseline" justify="center" class="ma-0" :class="{'mobile-width': isTabletOrSmaller}">
+    <v-container fluid class="main-content-width pa-0" :class="{'full-width': isTabletOrSmaller}">
+        <v-row align="baseline" justify="center" class="ma-0" :class="{'full-width': isTabletOrSmaller}">
             <v-col cols="2" v-if="!isTabletOrSmaller" class="d-flex flex-column">
                 <v-row align="baseline" justify="center">
 <!--                    <story-card class="pa-2 mb-2 mr-6"/>-->
@@ -63,10 +63,6 @@
 </script>
 
 <style lang="scss">
-    .mobile-width {
-        width: 100%;
-        max-width: 100%;
-    }
     .v-application .no-margin {
         margin: 0!important;
     }
