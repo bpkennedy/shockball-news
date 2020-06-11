@@ -1,11 +1,14 @@
 <template>
-    <v-img :src="src" v-on:error="onImgError" :cover="true"></v-img>
+    <v-img :src="validImage" v-on:error="onImgError" :cover="true"></v-img>
 </template>
 <script>
     export default {
         name: 'valid-image',
         props: {
-            src: '',
+            src: {
+                type: String,
+                required: true,
+            },
         },
         data() {
             return {

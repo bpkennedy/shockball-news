@@ -24,12 +24,10 @@
     import BrandText from "@/components/BrandText.vue";
     import {TOGGLE_DRAWER_ACTION} from "@/store";
     import {mapState} from "vuex";
-    import ShockerIcon from "@/components/ShockerIcon";
 
     export default {
         name: 'TopBar',
         components: {
-            ShockerIcon,
             BrandText,
         },
         methods: {

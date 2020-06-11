@@ -6,7 +6,26 @@ const dateFields = [
     'modified_on',
 ]
 
-const getOne = async ({ id, collection }: {id: string, collection: string}) => {
+function sanitizeFields (items: any[]) {
+    return items.map(i => {
+        dateFields.forEach(fieldName => {
+            if (i[fieldName]) {
+                i[fieldName] = swcTime(i[fieldName].toDate())
+            }
+        })
+        return i
+    })
+}
+
+function iterateSnapshotForItems (snapshot: any) {
+    if (snapshot.empty) {
+        return []
+    }
+    const unsanitizedItems = snapshot.docs.map((item: any) => item.data())
+    return sanitizeFields(unsanitizedItems)
+}
+
+const getOne = async ({ id, collection }: {id: string; collection: string}) => {
     const doc = await db.collection(collection).doc(id).get()
     if (!doc.exists) {
         return null
@@ -14,12 +33,7 @@ const getOne = async ({ id, collection }: {id: string, collection: string}) => {
     return doc.data()
 }
 
-const getAll = async ({ collection }: {collection: string}) => {
-    const snapshot = await db.collection(collection).get()
-    return iterateSnapshotForItems(snapshot)
-}
-
-const queryBuilder = async ({ collection, queries }: {collection: string, queries: any[]}) => {
+const queryBuilder = async ({ collection, queries }: {collection: string; queries: any[]}) => {
     const ref = db.collection(collection)
     let firestoreQuery: any
     queries.forEach((query, index) => {
@@ -72,23 +86,4 @@ export const getOneArticle = async (articleId: string) => {
         ...articleData[1][0],
     }
     return article
-}
-
-function iterateSnapshotForItems (snapshot: any) {
-    if (snapshot.empty) {
-        return []
-    }
-    const unsanitizedItems = snapshot.docs.map((item: any) => item.data())
-    return sanitizeFields(unsanitizedItems)
-}
-
-function sanitizeFields (items: any[]) {
-    return items.map(i => {
-        dateFields.forEach(fieldName => {
-            if (i[fieldName]) {
-                i[fieldName] = swcTime(i[fieldName].toDate())
-            }
-        })
-        return i
-    })
 }

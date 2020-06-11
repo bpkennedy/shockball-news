@@ -19,14 +19,14 @@ const SET_CLIENT_LAST_UPDATED_MUTATION = 'SET_CLIENT_LAST_UPDATED_MUTATION'
 const RESET_STATE_MUTATION = 'RESET_STATE_MUTATION'
 
 interface InitialState {
-  clientLastUpdated: string | null
-  currentArticle: any
-  databaseConfig: any
-  drawerOpen: boolean
-  recentArticlesList: any[],
+  clientLastUpdated: string | null;
+  currentArticle: any;
+  databaseConfig: any;
+  drawerOpen: boolean;
+  recentArticlesList: any[];
 }
 
-const getDefaultState = () : InitialState => {
+const getDefaultState = (): InitialState => {
   return {
     clientLastUpdated: null,
     currentArticle: {},

@@ -4,14 +4,13 @@
             <v-col v-if="!isTabletOrSmaller" cols="3" class="mr-0">
                 <v-row align-items="stretch">
                     <v-card tile class="mx-auto">
-                        <template v-for="story of recentArticlesList">
-                            <article-list-item :key="story.uid"
-                                               :title="story.title"
+                        <div v-for="story of recentArticlesList" :key="story.uid">
+                            <article-list-item :title="story.title"
                                                :created-on="story.created_on"
                                                :author-name="story.author_name"
                                                :to="story.uid"/>
                             <v-divider></v-divider>
-                        </template>
+                        </div>
                     </v-card>
                 </v-row>
             </v-col>

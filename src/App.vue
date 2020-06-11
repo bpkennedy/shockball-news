@@ -11,7 +11,6 @@
 <script>
 import TopBar from './components/TopBar.vue';
 import LeftDrawer from "@/components/LeftDrawer.vue";
-import {GET_ARTICLES_ACTION} from "@/store";
 
 export default {
   name: 'App',
