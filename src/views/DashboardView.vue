@@ -1,6 +1,6 @@
 <template>
-    <v-container fluid class="main-content-width pa-0">
-        <v-row align="baseline" justify="center">
+    <v-container fluid class="main-content-width pa-0" :class="{'mobile-width': isTabletOrSmaller}">
+        <v-row align="baseline" justify="center" class="ma-0" :class="{'mobile-width': isTabletOrSmaller}">
             <v-col cols="2" v-if="!isTabletOrSmaller" class="d-flex flex-column">
                 <v-row align="baseline" justify="center">
 <!--                    <story-card class="pa-2 mb-2 mr-6"/>-->
@@ -13,8 +13,8 @@
 <!--                    <story-card class="pa-2 mb-2 mr-6"/>-->
                 </v-row>
             </v-col>
-            <v-col :cols="dynamicMainColumnSize" class="d-flex flex-column">
-                <v-row align="baseline" justify="center" v-for="story of recentArticlesList" :key="story.uid">
+            <v-col :cols="dynamicMainColumnSize" class="d-flex flex-column" :class="{'pa-0': isTabletOrSmaller}">
+                <v-row align="baseline" justify="center" v-for="story of recentArticlesList" :key="story.uid" class="ma-2" :class="{'no-margin': isTabletOrSmaller}">
                     <story-card :title="story.title"
                                 :image-url="story.header_image_url"
                                 :created-on="story.created_on"
@@ -61,3 +61,21 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .mobile-width {
+        width: 100%;
+        max-width: 100%;
+    }
+    .v-application .no-margin {
+        margin: 0!important;
+    }
+    .v-application .title {
+        line-height: 1.5rem;
+    }
+    .v-application .v-card__text .title {
+        font-size: 1.15rem!important;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+</style>

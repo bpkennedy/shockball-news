@@ -1,5 +1,5 @@
 <template>
-    <v-img :src="src" v-on:error="onImgError"></v-img>
+    <v-img :src="src" v-on:error="onImgError" :cover="true"></v-img>
 </template>
 <script>
     export default {
