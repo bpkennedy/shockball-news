@@ -13,7 +13,7 @@
     "@firebase/auth": "^0.14.6",
     "@firebase/firestore": "^1.15.0",
     "core-js": "^3.6.5",
-    "markdown-it": "^11.0.0",
+    "markdown-it": "^12.3.2",
     "tiptap": "^1.27.1",
     "tiptap-extensions": "^1.29.1",
     "vue": "^2.6.11",
